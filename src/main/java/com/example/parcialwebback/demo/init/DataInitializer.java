@@ -1,23 +1,17 @@
 package com.example.parcialwebback.demo.init;
 
 import com.example.parcialwebback.demo.model.Clinica;
-import com.example.parcialwebback.demo.model.Doctor;
 import com.example.parcialwebback.demo.repository.ClinicaRepository;
-import com.example.parcialwebback.demo.repository.DoctorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
 
     private final ClinicaRepository clinicaRepository;
-    private final DoctorRepository doctorRepository;
 
-    public DataInitializer(ClinicaRepository clinicaRepository, DoctorRepository doctorRepository) {
+    public DataInitializer(ClinicaRepository clinicaRepository) {
         this.clinicaRepository = clinicaRepository;
-        this.doctorRepository = doctorRepository;
     }
 
     @Override
@@ -50,59 +44,7 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
         clinica3 = clinicaRepository.save(clinica3);
 
-        // Crear doctores de ejemplo
-        Doctor doctor1 = Doctor.builder()
-                .nombre("Dr. Juan Pérez")
-                .especialidad("Cardiología")
-                .clinica(clinica1)
-                .email("juan.perez@clinica.com")
-                .telefono("555-1001")
-                .fechaContratacion(LocalDate.of(2020, 1, 15))
-                .build();
-        doctorRepository.save(doctor1);
-
-        Doctor doctor2 = Doctor.builder()
-                .nombre("Dra. María García")
-                .especialidad("Pediatría")
-                .clinica(clinica1)
-                .email("maria.garcia@clinica.com")
-                .telefono("555-1002")
-                .fechaContratacion(LocalDate.of(2019, 5, 20))
-                .build();
-        doctorRepository.save(doctor2);
-
-        Doctor doctor3 = Doctor.builder()
-                .nombre("Dr. Carlos Rodríguez")
-                .especialidad("Neurología")
-                .clinica(clinica2)
-                .email("carlos.rodriguez@clinica.com")
-                .telefono("555-1003")
-                .fechaContratacion(LocalDate.of(2021, 3, 10))
-                .build();
-        doctorRepository.save(doctor3);
-
-        Doctor doctor4 = Doctor.builder()
-                .nombre("Dra. Ana Martínez")
-                .especialidad("Dermatología")
-                .clinica(clinica2)
-                .email("ana.martinez@clinica.com")
-                .telefono("555-1004")
-                .fechaContratacion(LocalDate.of(2022, 7, 1))
-                .build();
-        doctorRepository.save(doctor4);
-
-        Doctor doctor5 = Doctor.builder()
-                .nombre("Dr. Luis Fernández")
-                .especialidad("Ortopedia")
-                .clinica(clinica3)
-                .email("luis.fernandez@clinica.com")
-                .telefono("555-1005")
-                .fechaContratacion(LocalDate.of(2018, 11, 15))
-                .build();
-        doctorRepository.save(doctor5);
-
         System.out.println("Datos de ejemplo cargados correctamente");
         System.out.println("Clinicas creadas: " + clinicaRepository.count());
-        System.out.println("Doctores creados: " + doctorRepository.count());
     }
 }

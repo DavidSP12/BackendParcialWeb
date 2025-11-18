@@ -1,12 +1,12 @@
 # Sistema de Gestión de Clínicas - Backend
 
-API REST desarrollada con Spring Boot para la gestión de clínicas y doctores.
+API REST desarrollada con Spring Boot para la gestión de clínicas.
 
-## 📋 Descripción
+## Descripción
 
-Sistema backend que permite gestionar clínicas y doctores mediante una API REST, implementando operaciones CRUD básicas siguiendo las mejores prácticas de desarrollo con arquitectura en capas.
+Sistema backend que permite gestionar clínicas mediante una API REST, implementando operaciones CRUD básicas siguiendo las mejores prácticas de desarrollo con arquitectura en capas.
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 El proyecto sigue una arquitectura en capas bien definida:
 
@@ -21,10 +21,9 @@ com.example.parcialwebback.demo
 ├── model/           # Entidades JPA
 ├── repository/      # Repositorios JPA
 └── service/         # Capa de servicios
-    └── impl/        # Implementaciones de servicios
 ```
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - **Java 17**
 - **Spring Boot 3.5.7**
@@ -35,7 +34,7 @@ com.example.parcialwebback.demo
 - **Spring Validation** (validaciones)
 - **Swagger/OpenAPI** (documentación API)
 
-## 📦 Dependencias principales
+## Dependencias principales
 
 ```xml
 - spring-boot-starter-web
@@ -47,7 +46,7 @@ com.example.parcialwebback.demo
 - springdoc-openapi-starter-webmvc-ui
 ```
 
-## 🚀 Instalación y ejecución
+## Instalación y ejecución
 
 ### Prerrequisitos
 - Java 17 o superior
@@ -72,21 +71,21 @@ cd demo
 
 La aplicación estará disponible en: `http://localhost:8080`
 
-## 📊 Base de datos H2
+## Base de datos H2
 
 - **URL**: `http://localhost:8080/h2-console`
 - **JDBC URL**: `jdbc:h2:mem:clinicadb`
 - **Usuario**: `sa`
 - **Contraseña**: _(vacía)_
 
-## 📖 Documentación API (Swagger)
+## Documentación API (Swagger)
 
 Una vez iniciada la aplicación, puedes acceder a la documentación interactiva:
 
 - **Swagger UI**: `http://localhost:8080/swagger-ui.html`
 - **API Docs (JSON)**: `http://localhost:8080/api-docs`
 
-## 🔌 Endpoints disponibles
+## Endpoints disponibles
 
 ### Clínicas
 
@@ -100,20 +99,7 @@ Una vez iniciada la aplicación, puedes acceder a la documentación interactiva:
 | GET | `/api/clinicas/ciudad/{ciudad}` | Buscar por ciudad |
 | GET | `/api/clinicas/buscar?nombre={nombre}` | Buscar por nombre |
 
-### Doctores
-
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET | `/api/doctores` | Obtener todos los doctores |
-| GET | `/api/doctores/{id}` | Obtener doctor por ID |
-| POST | `/api/doctores` | Crear nuevo doctor |
-| PUT | `/api/doctores/{id}` | Actualizar doctor |
-| DELETE | `/api/doctores/{id}` | Eliminar doctor |
-| GET | `/api/doctores/clinica/{clinicaId}` | Buscar por clínica |
-| GET | `/api/doctores/especialidad/{especialidad}` | Buscar por especialidad |
-| GET | `/api/doctores/buscar?nombre={nombre}` | Buscar por nombre |
-
-## 📝 Ejemplos de uso
+## Ejemplos de uso
 
 ### Crear una clínica
 
@@ -129,22 +115,7 @@ curl -X POST http://localhost:8080/api/clinicas \
   }'
 ```
 
-### Crear un doctor
-
-```bash
-curl -X POST http://localhost:8080/api/doctores \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nombre": "Dr. Ejemplo",
-    "especialidad": "Medicina General",
-    "clinicaId": 1,
-    "email": "doctor@ejemplo.com",
-    "telefono": "555-1000",
-    "fechaContratacion": "2024-01-15"
-  }'
-```
-
-## 🗄️ Modelo de datos
+## Modelo de datos
 
 ### Clínica
 - `id` (Long, PK)
@@ -155,22 +126,12 @@ curl -X POST http://localhost:8080/api/doctores \
 - `ciudad` (String, obligatorio)
 - `fechaCreacion` (LocalDateTime, automático)
 
-### Doctor
-- `id` (Long, PK)
-- `nombre` (String, obligatorio)
-- `especialidad` (String, obligatorio)
-- `clinicaId` (Long, FK, obligatorio)
-- `email` (String, obligatorio, formato email)
-- `telefono` (String, obligatorio)
-- `fechaContratacion` (LocalDate, obligatorio)
-
-## 📂 Datos de ejemplo
+## Datos de ejemplo
 
 Al iniciar la aplicación, se cargan automáticamente:
 - 3 clínicas de ejemplo
-- 5 doctores de ejemplo
 
-## ✅ Validaciones
+## Validaciones
 
 El sistema incluye validaciones automáticas:
 - Campos obligatorios (@NotBlank, @NotNull)
@@ -178,7 +139,7 @@ El sistema incluye validaciones automáticas:
 - Valores mínimos (@Min)
 - Relaciones entre entidades
 
-## 🔍 Manejo de errores
+## Manejo de errores
 
 Respuestas de error estandarizadas con:
 - Código de estado HTTP apropiado
@@ -196,10 +157,10 @@ Ejemplo:
 }
 ```
 
-## 👨‍💻 Autor
+## Autor
 
 Proyecto de ejemplo para Parcial Web Backend
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es de uso académico.
