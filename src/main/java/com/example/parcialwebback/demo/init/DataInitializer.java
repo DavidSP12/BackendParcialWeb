@@ -101,8 +101,8 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
         doctorRepository.save(doctor5);
 
-        System.out.println("✅ Datos de ejemplo cargados correctamente");
-        System.out.println("📊 Clínicas creadas: " + clinicaRepository.count());
-        System.out.println("👨‍⚕️ Doctores creados: " + doctorRepository.count());
+        System.out.println("Datos de ejemplo cargados correctamente");
+        System.out.println("Clinicas creadas: " + clinicaRepository.count());
+        System.out.println("Doctores creados: " + doctorRepository.count());
     }
 }
